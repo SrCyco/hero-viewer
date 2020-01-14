@@ -1,0 +1,30 @@
+
+$primary: #ed1d24;
+$secondary: #ffffff;
+$color-font: #000000;
+$color-hover: #a10005;
+$grid: 85%;
+$grid-second: 80%;
+
+$font_base: 16;
+$font-callback: sans-serif;
+$font-marvel: Marvel, $font-callback;
+$font-action: ActionMan, $font-callback;
+$font-action-bold: ActionManBold, $font-callback;
+
+$breakpoints: (
+    "phone-small":          320px,
+    "phone-medium":         370px,
+    "phone":                400px,
+    "phone-wide":           480px,
+    "phablet":              560px,
+    "tablet-small":         640px,
+    "tablet":               768px,
+    "laptop-small":         1280px,
+    "laptop":               1366px,
+    "desktop-small":        1440px,
+    "desktop-medium":       1680px,
+    "desktop":              1920px,
+    "desktop-retina":       2048px,
+);
+

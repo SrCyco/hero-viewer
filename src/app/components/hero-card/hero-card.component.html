@@ -1,0 +1,17 @@
+<article *ngIf="heroData" class="hero-card" (click)="showHero()">
+  <figure class="hero-card__image">
+    <img [src]="heroData.picture" [alt]="heroData.name">
+  </figure>
+  <div class="right-wrapper">
+    <div class="hero-card__info">
+      <h2 class="hero-card__name">{{ heroData.name }}</h2>
+      <p class="hero-card__desc">{{ heroData.info }}</p>
+      <p class="hero-card__publisher">{{ heroData.publisher }}</p>
+    </div>
+    <div class="votes" (click)="$event.stopPropagation()">
+      <button (click)="vote('like');" class="button button--like" [ngClass]="{'active': liked }"></button>
+      <button (click)="vote('dislike')" class="button button--dislike" [ngClass]="{'active': disliked }"></button>
+    </div>
+  </div>
+
+</article>

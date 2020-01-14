@@ -1,0 +1,3 @@
+<app-header [isBack]="true"></app-header>
+
+<app-hero-card *ngIf="hero" class="card--complete" [heroData]="hero" heroSlug="{{ hero.name | slug }}"></app-hero-card>

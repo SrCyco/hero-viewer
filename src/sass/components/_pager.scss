@@ -1,0 +1,41 @@
+.pagination {
+    display: flex;
+    background-color: $primary;
+    margin-top: 4.68vh;
+    .page-item{
+        cursor: pointer;
+        .page-link {
+            display: block;
+            padding: .4vw .6vw;
+            color: $secondary;
+            font-family: $font-action-bold;
+            border-right: 1px solid $secondary;
+            @include mq('tablet') { 
+                padding: 1.2vw 1.9vw;
+            }
+        }
+        &.first-item, &.last-item {
+            display: none;
+        }
+        &.next-item {
+            .page-link {
+                border-right: 0;
+            }
+        }
+        &.active, &.active-temp {
+            .page-link{
+                background-color: $secondary;
+                color: $primary;
+            }
+        }
+        &:hover {
+            .page-link { 
+                background-color: $color-hover;
+                color: $secondary;
+            }
+        }
+    }
+     @include mq('laptop') { 
+        margin-bottom: 4.68vh;    
+     }
+}
