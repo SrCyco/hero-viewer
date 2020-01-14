@@ -1,0 +1,42 @@
+@import '~src/sass/abstracts/abstracts';
+
+.pager {
+    margin-top: 4.68vh;
+    @include mq('laptop') { 
+        margin-bottom: 4.68vh;
+     }
+    &__item {
+        background-color: $color-pager;
+        color: $secondary;
+        font-family: $font-action;
+        padding: .4vw .6vw;
+        will-change: color, background-color;
+        transition-property: color, background-color;
+        transition-duration: .2s;
+        transition-timing-function: ease-out;
+        @include mq('tablet') { 
+            padding: 1.2vw 1.9vw;
+        }
+        &.active {
+            background-color: $color-active;
+            color: $color-pager;
+        }
+        &--prev, &--next, &.active {
+            font-family: $font-action-bold;
+        }
+        &--prev, &--next {
+            &:disabled {
+                background-color: $color-disabled;
+                color: rgba($color: $color-hover, $alpha: .5);
+                &:hover {
+                    background-color: $color-disabled;
+                    color: rgba($color: $color-hover, $alpha: .5);
+                }
+            }
+        }
+        &:hover {
+            background-color: $color-hover;
+            color: $color-active;
+        }
+    }
+}

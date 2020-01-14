@@ -12,57 +12,44 @@ export class HeroesComponent implements OnInit {
   heroes: any;
   heroesPage: Array<any>;
   page: number;
-  @ViewChild(HeroesComponent, { static: false }) child;
 
 
   constructor( private heroesData: HeroesDataService, private router: Router) { }
 
 
   ngOnInit() {
+    this.page = 1;
     this.heroesData.getHeroes().subscribe( data => this.heroes = data);
     this.setSavedPage();
+  }
+
+  currentPage( event ) {
+    this.page = event;
   }
 
   showHero(slug: string) {
     this.router.navigate(['/hero', slug]);
     this.saveActivePage();
   }
-  // onChangePage(heroesPage: Array<any>) {
-  //   // update current page of items
-  //   this.heroesPage = heroesPage;
-  //   this.setSavedPageActive();
-  //   sessionStorage.clear();
-  // }
+  
   newPage(heroesPage: Array<any>) {
-    console.log('---page', heroesPage);
-    this.heroesPage = heroesPage;
+    setTimeout(() => {
+      this.heroesPage = heroesPage;
+      sessionStorage.clear();
+    }, 0);
   }
 
   saveActivePage() {
-    const active: string = document.querySelector('.number-item.active .page-link').innerHTML;
     if (!sessionStorage.getItem('page')) {
-      sessionStorage.setItem('page', active);
+      sessionStorage.setItem('page', `${this.page}`);
     } else {
-      sessionStorage.page = active;
+      sessionStorage.page = this.page;
     }
   }
 
   setSavedPage() {
-    this.page = sessionStorage.page;
-  }
-
-  setSavedPageActive() {
-    const pageItems: NodeListOf<Element> = document.querySelectorAll('.number-item');
-    const activeItem = pageItems[this.page - 1];
-    if (sessionStorage.getItem('page')) {
-      const active: Element = document.querySelector('.number-item.active');
-      if (!active) {
-        activeItem.classList.add('active-temp');
-      }
-    } else {
-      if (activeItem) {
-        activeItem.classList.remove('active-temp');
-      }
-    }
+    if(sessionStorage.getItem('page')) {
+      this.page = parseInt(sessionStorage.page);
+    } 
   }
 }

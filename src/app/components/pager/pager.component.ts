@@ -16,6 +16,7 @@ export class PagerComponent implements OnInit {
   current: number;
 
   @Output() newItems = new EventEmitter<any>();
+  @Output() currentPage = new EventEmitter<number> ();
 
   constructor() { }
 
@@ -47,9 +48,9 @@ export class PagerComponent implements OnInit {
   private returnItems(page: number) {
     const limitPage: number = this.pages[page - 1]['limit'];
     if (page > 0) {
-      const itemsPage: Array<object> =  this.data.slice(limitPage, limitPage + this.itemsPerPage);
+      const itemsPage: Array<object> = this.data.slice(limitPage, limitPage + this.itemsPerPage);
       this.newItems.emit(itemsPage);
-      console.log(itemsPage);
+      this.currentPage.emit(page);
     }
   }
 
