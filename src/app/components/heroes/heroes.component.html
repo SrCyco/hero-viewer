@@ -1,10 +1,18 @@
 <div class="wrapper">
   <app-header [isBack]="false" (currentPage)="setSavedPage($event)"></app-header>
-  <div class="heroes-grid">
+  <!-- <div class="heroes-grid">
     <app-hero-card class="card card--small" (selectedHero)="showHero( $event )"
       *ngFor="let hero of heroesPage | slice:minLimit:maxLimit; let i = index;" [heroData]="hero"
       heroSlug="{{ hero.name | slug }}"></app-hero-card>
   </div>
   <jw-pagination [items]="heroes" [pageSize]="9" [initialPage]="page" (changePage)="onChangePage($event)">
-  </jw-pagination>
+  </jw-pagination> -->
+
+  <div class="heroes-grid">
+    <app-hero-card class="card card--small" (selectedHero)="showHero( $event )"
+      *ngFor="let hero of heroesPage" [heroData]="hero"
+      heroSlug="{{ hero.name | slug }}"></app-hero-card>
+  </div>
+
+  <app-pager *ngIf="heroes" [data]="heroes" [initialPage]="1" [itemsPerPage]="9" (newItems)="newPage($event)"></app-pager>
 </div>

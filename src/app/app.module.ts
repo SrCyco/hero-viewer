@@ -10,6 +10,7 @@ import { HeroCardComponent } from './components/hero-card/hero-card.component';
 import { SlugPipe } from './pipes/slug.pipe';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { JwPaginationComponent } from 'jw-angular-pagination';
+import { PagerComponent } from './components/pager/pager.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
     HeroCardComponent,
     SlugPipe,
     HeaderComponent,
-    JwPaginationComponent
+    JwPaginationComponent,
+    PagerComponent
   ],
   imports: [
     BrowserModule,

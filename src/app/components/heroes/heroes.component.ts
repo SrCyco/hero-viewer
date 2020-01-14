@@ -27,11 +27,15 @@ export class HeroesComponent implements OnInit {
     this.router.navigate(['/hero', slug]);
     this.saveActivePage();
   }
-  onChangePage(heroesPage: Array<any>) {
-    // update current page of items
+  // onChangePage(heroesPage: Array<any>) {
+  //   // update current page of items
+  //   this.heroesPage = heroesPage;
+  //   this.setSavedPageActive();
+  //   sessionStorage.clear();
+  // }
+  newPage(heroesPage: Array<any>) {
+    console.log('---page', heroesPage);
     this.heroesPage = heroesPage;
-    this.setSavedPageActive();
-    sessionStorage.clear();
   }
 
   saveActivePage() {

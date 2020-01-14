@@ -1,0 +1,6 @@
+<p>pager works!</p>
+<article>
+    <button (click)="prevPage()" [disabled]="current <= 1">prev</button>
+    <button *ngFor="let page of pages" (click)="setPage(page.index)">{{ page.index }}</button>
+    <button (click)="nextPage()" [disabled]="current >= totalPages">next</button>
+</article>
